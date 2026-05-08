@@ -5,7 +5,7 @@ provider: PlayHT
 providerId: play-ht
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: partial
 tags:
 - AI
 - Voice
@@ -13,29 +13,101 @@ tags:
 - Voice Cloning
 - Audio
 - Plans
-description: Placeholder plans/pricing artifact for PlayHT. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: >-
+  PlayHT publishes consumer-facing subscription tiers (Free / Professional / Premium) plus
+  an Enterprise plan that gates API access, voice cloning, and dedicated support. Per-API
+  rate sheets are not openly listed; effective per-character cost can be derived from
+  monthly word/character allowances.
+notes: Per-call API rate sheet is not published; verify enterprise pricing with PlayHT sales for production.
 sources:
-- https://play.ht/
+- https://play.ht/pricing/
 plans:
-- id: play-ht-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: play-ht-free
+  name: Free
+  type: free
+  description: 5,000 words/month, all voices, non-commercial use only with attribution.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Plan Fee
+    name: plan_fee
     type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
+    metric: month
+    limit: 1
+    timeFrame: month
     geo: global
     unit: 1
-    price: see https://play.ht/
+    price: 0 USD/month
+    userMultiplied: false
+  - label: Word Allowance
+    name: word_allowance
+    type: per_unit
+    metric: word
+    limit: 5000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Non-commercial use only
+- id: play-ht-professional
+  name: Professional
+  type: subscription
+  description: 600,000 words/month with commercial license at $39/month.
+  entries:
+  - label: Plan Fee
+    name: plan_fee
+    type: flat
+    metric: month
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 39 USD/month
+    userMultiplied: false
+  - label: Word Allowance
+    name: word_allowance
+    type: per_unit
+    metric: word
+    limit: 600000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+- id: play-ht-premium
+  name: Premium
+  type: subscription
+  description: Unlimited voice generation and ultra-realistic voices at $99/month.
+  entries:
+  - label: Plan Fee
+    name: plan_fee
+    type: flat
+    metric: month
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 99 USD/month
+    userMultiplied: false
+- id: play-ht-enterprise
+  name: Enterprise (API Access)
+  type: enterprise
+  description: API access, voice cloning, dedicated support; required for production API integrations.
+  entries:
+  - label: Enterprise Contract
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Voice cloning
+  - name: Dedicated support
+  - name: API access
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

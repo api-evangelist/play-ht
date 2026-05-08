@@ -5,7 +5,7 @@ provider: PlayHT
 providerId: play-ht
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: partial
 tags:
 - AI
 - Voice
@@ -15,21 +15,36 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for PlayHT. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  PlayHT rate-limits primarily through monthly word allowances per plan tier (5K Free /
+  600K Professional / unlimited Premium) and concurrency caps documented in the API docs.
+  Specific HTTP RPS limits depend on plan; verify with PlayHT support for enterprise.
+notes: Plan-tier word allowances are the primary scaling lever; HTTP RPS limits are not fully public.
 sources:
-- https://play.ht/
+- https://play.ht/pricing/
+- https://docs.play.ht/
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Word Allowance (Free)
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: words
+  limit: 5000
+  notes: Monthly free tier word cap (non-commercial use).
+- name: Word Allowance (Professional)
+  scope: account
+  metric: words
+  limit: 600000
+  notes: Monthly Professional tier word cap.
+- name: HTTP Requests
+  scope: account
+  metric: requests
+  limit: not publicly documented
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Plan Sizing
+  description: Move to Premium / Enterprise when production volume approaches Professional cap.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -5,7 +5,7 @@ provider: PlayHT
 providerId: play-ht
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -15,10 +15,14 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for PlayHT. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps view of PlayHT. PlayHT bills as monthly subscription tiers with
+  bundled word allowances (5K / 600K / unlimited). API access requires Enterprise tier.
+  Effective per-character cost depends on plan tier and actual usage.
+notes: Plan-tier sizing is the dominant FinOps lever; calculate effective per-word cost vs alternatives at expected monthly volume.
 sources:
-- https://play.ht/
+- https://play.ht/pricing/
+- https://docs.play.ht/
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,38 +33,51 @@ alignedWith:
 publisherName: PlayHT
 serviceCategory: AI
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription with Word Allowance
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
-  - Usage
   - Purchase
+  - Usage
   - Adjustment
 focusColumns:
-  ServiceName: PlayHT
+  ServiceName: PlayHT TTS API
   ServiceCategory: AI
   ProviderName: PlayHT
   PublisherName: PlayHT
   InvoiceIssuerName: PlayHT
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: words_synthesized
+  description: Words sent to TTS synthesis (drawn down from monthly allowance).
+  unit: word
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - voice
+- name: subscription_seats
+  description: PlayHT subscription seats per plan tier.
+  unit: seat
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: voice_clones
+  description: Voice clone count under enterprise plans.
+  unit: clone
+  aggregation: max
+  dimensions:
+  - account
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Track word burn against monthly plan allowance in PlayHT studio.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag voices and integrations to consuming business units.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Move to Premium when Professional 600K/month is consistently exceeded; negotiate Enterprise for production API.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign owner per plan and per integration consuming TTS.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

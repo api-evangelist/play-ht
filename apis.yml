@@ -3,7 +3,10 @@ url: https://raw.githubusercontent.com/api-evangelist/play-ht/refs/heads/main/ap
 name: PlayHT
 x-type: company
 description: >-
-  PlayHT is an AI voice generation and TTS platform with hundreds of voices, voice cloning, and a realtime conversational voice API (Play 3.0 mini, PlayDialog).
+  PlayHT is an AI voice generation and TTS platform with hundreds of voices, voice cloning,
+  and a realtime conversational voice API (Play 3.0 mini, PlayDialog). The PlayHT REST API
+  exposes voice synthesis, voice cloning, streaming, and language translation. Documentation
+  is at https://docs.play.ht/.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -11,13 +14,37 @@ tags:
   - TTS
   - Voice Cloning
   - Audio
+  - Realtime
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: play-ht:platform
+    name: PlayHT API
+    description: >-
+      REST API for PlayHT TTS, voice cloning, and PlayDialog conversational voice. v2.2 and
+      v2.3 endpoints supported. WebSocket streaming for low-latency conversational use cases.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.play.ht/reference/api-getting-started
+    baseURL: https://api.play.ht/api
+    tags:
+      - TTS
+      - Voice Cloning
+      - WebSocket
+      - PlayDialog
+      - Streaming
+    properties:
+      - type: Documentation
+        url: https://docs.play.ht/reference/api-getting-started
+      - type: SignUp
+        url: https://play.ht/studio/api-access
+      - type: Pricing
+        url: https://play.ht/pricing/
 common:
   - type: Website
     url: https://play.ht/
+  - type: Documentation
+    url: https://docs.play.ht/
   - type: Plans
     url: plans/play-ht-plans-pricing.yml
   - type: RateLimits
