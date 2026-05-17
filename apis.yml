@@ -1,7 +1,7 @@
 aid: play-ht
 url: https://raw.githubusercontent.com/api-evangelist/play-ht/refs/heads/main/apis.yml
 name: PlayHT
-x-type: company
+kind: company
 description: >-
   PlayHT is an AI voice generation and TTS platform with hundreds of voices, voice cloning,
   and a realtime conversational voice API (Play 3.0 mini, PlayDialog). The PlayHT REST API
