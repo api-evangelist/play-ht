@@ -55,6 +55,8 @@ common:
     url: rate-limits/play-ht-rate-limits.yml
   - type: FinOps
     url: finops/play-ht-finops.yml
+  - type: LLMsTxt
+    url: https://docs.play.ht/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
