@@ -1,0 +1,630 @@
+{
+  "item": [
+    {
+      "id": "a11b0a74-e6b9-4ff3-a4bb-1db825c04d81",
+      "name": "TTS",
+      "description": {
+        "content": "Text-to-speech generation jobs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "19e634ec-edde-401a-b075-1b87f105487e",
+          "name": "Stream audio from text",
+          "request": {
+            "name": "Stream audio from text",
+            "description": {
+              "content": "Streams the audio bytes for the supplied text in real time using\nPlayHT's text-in, audio-out API.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "audio/mpeg"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\",\n  \"voice\": \"<string>\",\n  \"voice_engine\": \"<string>\",\n  \"output_format\": \"<string>\",\n  \"speed\": \"<number>\",\n  \"quality\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "76bab7b4-552f-43c3-a613-d56694627095",
+              "name": "Streamed audio bytes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "audio/mpeg"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"voice\": \"<string>\",\n  \"voice_engine\": \"<string>\",\n  \"output_format\": \"<string>\",\n  \"speed\": \"<number>\",\n  \"quality\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "audio/mpeg"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10a4df9b-c4b7-4fef-85a7-0e2168d54d81",
+          "name": "Create a batch TTS job",
+          "request": {
+            "name": "Create a batch TTS job",
+            "description": {
+              "content": "Converts one or more input texts into audio asynchronously. Poll the\njob endpoints to retrieve completion status.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tts",
+                "job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\",\n  \"voice\": \"<string>\",\n  \"voice_engine\": \"<string>\",\n  \"output_format\": \"<string>\",\n  \"speed\": \"<number>\",\n  \"quality\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "96376eb4-92a6-4861-b3e9-1d82fb77429e",
+              "name": "Job created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tts",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"voice\": \"<string>\",\n  \"voice_engine\": \"<string>\",\n  \"output_format\": \"<string>\",\n  \"speed\": \"<number>\",\n  \"quality\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"failed\",\n  \"url\": \"http://aYhziXqzjVphePdECYVNbXizLWAXluxW.ctjlV5,czKmaEwXie48bWOmwi+\",\n  \"duration\": 7180.4651049200775,\n  \"created\": \"1959-12-02T11:52:05.147Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f510f7c2-510c-4339-b638-7086346a6764",
+          "name": "Get batch TTS job details",
+          "request": {
+            "name": "Get batch TTS job details",
+            "description": {
+              "content": "Retrieves batch job information including all child jobs and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tts",
+                "job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69f98e93-c738-4701-a8a2-e89d75ee70be",
+              "name": "Batch job.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tts",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"failed\",\n  \"url\": \"http://aYhziXqzjVphePdECYVNbXizLWAXluxW.ctjlV5,czKmaEwXie48bWOmwi+\",\n  \"duration\": 7180.4651049200775,\n  \"created\": \"1959-12-02T11:52:05.147Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac9297da-ce87-4bbe-b7c7-154c7d9fe5d5",
+          "name": "Get batch TTS child job by ID",
+          "request": {
+            "name": "Get batch TTS child job by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "tts",
+                "job",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) TTS batch job identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c7594eb-cea2-440d-a2c8-933d5d6de5ae",
+              "name": "Child job.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tts",
+                    "job",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) TTS batch job identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"failed\",\n  \"url\": \"http://aYhziXqzjVphePdECYVNbXizLWAXluxW.ctjlV5,czKmaEwXie48bWOmwi+\",\n  \"duration\": 7180.4651049200775,\n  \"created\": \"1959-12-02T11:52:05.147Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "46c363d0-1f98-4c9a-ba89-3751f393a46f",
+      "name": "Voices",
+      "description": {
+        "content": "Prebuilt and cloned voice catalog.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93c3eb4f-eab4-4f76-9035-e65ce8383727",
+          "name": "List prebuilt voices",
+          "request": {
+            "name": "List prebuilt voices",
+            "description": {
+              "content": "Returns the complete inventory of available stock voices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "voices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9909bea3-0c84-45c7-aec3-6fec2cd99f89",
+              "name": "Voice collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"language\": \"string\",\n    \"accent\": \"string\",\n    \"gender\": \"string\",\n    \"voice_engine\": \"string\",\n    \"sample\": \"http://tlZfzbZvhcpHOeVogMj.rvbsBDE4s,P4trM7gwvWUDOoED6vWa82sI9ZUNMhVc5,l\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"language\": \"string\",\n    \"accent\": \"string\",\n    \"gender\": \"string\",\n    \"voice_engine\": \"string\",\n    \"sample\": \"https://DrOhLqoffynZlRhwd.xudhjl9ZkFihRuaqB8P+8rKn4AouNQowh-MTAdLaN2i11ruV\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1428dba-8d60-4483-9d24-d83774016c28",
+          "name": "List cloned voices",
+          "request": {
+            "name": "List cloned voices",
+            "description": {
+              "content": "Retrieves the list of all cloned voices created by the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloned-voices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c02f7ae-6a13-49e0-a814-e9cf39877eb6",
+              "name": "Cloned voice collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloned-voices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"language\": \"string\",\n    \"accent\": \"string\",\n    \"gender\": \"string\",\n    \"voice_engine\": \"string\",\n    \"sample\": \"http://tlZfzbZvhcpHOeVogMj.rvbsBDE4s,P4trM7gwvWUDOoED6vWa82sI9ZUNMhVc5,l\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"language\": \"string\",\n    \"accent\": \"string\",\n    \"gender\": \"string\",\n    \"voice_engine\": \"string\",\n    \"sample\": \"https://DrOhLqoffynZlRhwd.xudhjl9ZkFihRuaqB8P+8rKn4AouNQowh-MTAdLaN2i11ruV\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa666632-aebd-42ed-8461-085fdf6c1685",
+              "name": "Missing or invalid API credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloned-voices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.play.ht/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AUTHORIZATION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "41cce5f5-0ccc-4823-ba87-ba3c4b0e198b",
+    "name": "PlayHT API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for PlayHT TTS, voice listing, and voice cloning. The v2\nendpoints sit under https://api.play.ht/api/v2. Authentication uses two\ncredentials supplied as headers: `AUTHORIZATION` (the secret API key)\nand `X-USER-ID` (the user identifier).\n\n\nContact Support:\n Name: API Evangelist\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

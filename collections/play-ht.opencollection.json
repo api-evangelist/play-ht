@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PlayHT API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TTS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Stream audio from text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.play.ht/api/v2/tts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Streams the audio bytes for the supplied text in real time using\nPlayHT's text-in, audio-out API.\n"
+        },
+        {
+          "info": {
+            "name": "Get batch TTS job details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.play.ht/api/v2/tts/job"
+          },
+          "docs": "Retrieves batch job information including all child jobs and status."
+        },
+        {
+          "info": {
+            "name": "Create a batch TTS job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.play.ht/api/v2/tts/job",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Converts one or more input texts into audio asynchronously. Poll the\njob endpoints to retrieve completion status.\n"
+        },
+        {
+          "info": {
+            "name": "Get batch TTS child job by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.play.ht/api/v2/tts/job/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "TTS batch job identifier."
+              }
+            ]
+          },
+          "docs": "Get batch TTS child job by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Voices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List prebuilt voices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.play.ht/api/v2/voices"
+          },
+          "docs": "Returns the complete inventory of available stock voices."
+        },
+        {
+          "info": {
+            "name": "List cloned voices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.play.ht/api/v2/cloned-voices"
+          },
+          "docs": "Retrieves the list of all cloned voices created by the user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
