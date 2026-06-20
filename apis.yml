@@ -7,7 +7,7 @@ description: >-
   and a realtime conversational voice API (Play 3.0 mini, PlayDialog). The PlayHT REST API
   exposes voice synthesis, voice cloning, streaming, and language translation. Documentation
   is at https://docs.play.ht/.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - Voice
@@ -24,7 +24,7 @@ apis:
     description: >-
       REST API for PlayHT TTS, voice cloning, and PlayDialog conversational voice. v2.2 and
       v2.3 endpoints supported. WebSocket streaming for low-latency conversational use cases.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.play.ht/reference/api-getting-started
     baseURL: https://api.play.ht/api
     tags:
