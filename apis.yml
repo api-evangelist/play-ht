@@ -36,7 +36,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.play.ht/reference/api-getting-started
-      - type: SignUp
+      - type: Signup
         url: https://play.ht/studio/api-access
       - type: Pricing
         url: https://play.ht/pricing/
@@ -55,7 +55,7 @@ common:
     url: rate-limits/play-ht-rate-limits.yml
   - type: FinOps
     url: finops/play-ht-finops.yml
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.play.ht/llms.txt
 maintainers:
   - FN: Kin Lane
