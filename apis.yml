@@ -41,6 +41,10 @@ apis:
       - type: Pricing
         url: https://play.ht/pricing/
 common:
+  - type: DomainSecurity
+    url: security/play-ht-domain-security.yml
+  - type: Authentication
+    url: authentication/play-ht-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/playht
   - type: LinkedIn
