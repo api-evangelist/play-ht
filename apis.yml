@@ -41,6 +41,8 @@ apis:
       - type: Pricing
         url: https://play.ht/pricing/
 common:
+  - type: AgenticAccess
+    url: agentic-access/play-ht-agentic-access.yml
   - type: DomainSecurity
     url: security/play-ht-domain-security.yml
   - type: Authentication
