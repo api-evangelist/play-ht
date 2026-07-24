@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: PlayHT TTS Voices API
+  description: 'REST API for PlayHT TTS, voice listing, and voice cloning. The v2
+
+    endpoints sit under https://api.play.ht/api/v2. Authentication uses two
+
+    credentials supplied as headers: `AUTHORIZATION` (the secret API key)
+
+    and `X-USER-ID` (the user identifier).
+
+    '
+  version: 1.0.0
+  contact:
+    name: API Evangelist
+    email: kin@apievangelist.com
+  license:
+    name: Proprietary
+servers:
+- url: https://api.play.ht/api/v2
+  description: PlayHT v2 API
+security:
+- apiKey: []
+  userId: []
+tags:
+- name: Voices
+  description: Prebuilt and cloned voice catalog.
+paths:
+  /voices:
+    get:
+      tags:
+      - Voices
+      summary: List prebuilt voices
+      description: Returns the complete inventory of available stock voices.
+      responses:
+        '200':
+          description: Voice collection.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voice'
+  /cloned-voices:
+    get:
+      tags:
+      - Voices
+      summary: List cloned voices
+      description: Retrieves the list of all cloned voices created by the user.
+      responses:
+        '200':
+          description: Cloned voice collection.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voice'
+        '401':
+          description: Missing or invalid API credentials.
+components:
+  schemas:
+    Voice:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        language:
+          type: string
+        accent:
+          type: string
+        gender:
+          type: string
+        voice_engine:
+          type: string
+        sample:
+          type: string
+          format: uri
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      description: Secret API key generated in the PlayHT studio.
+    userId:
+      type: apiKey
+      in: header
+      name: X-USER-ID
+      description: PlayHT user identifier paired with the API key.
