@@ -1,0 +1,16 @@
+{
+  "provider": "play-ht",
+  "sources": [
+    "play-ht-tts-api-openapi.yml",
+    "play-ht-voices-api-openapi.yml"
+  ],
+  "outputs": [
+    "play-ht-tts-api-openapi.yml",
+    "play-ht-voices-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
